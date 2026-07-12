@@ -1,6 +1,7 @@
 import streamlit as base_st
-from datetime import datetime
+from datetime import datetime, timedelta
 import streamlit.components.v1 as components
+import time
 
 # --- CONFIGURACIÓN DE LA INTERFAZ ---
 base_st.set_page_config(page_title="Inspector Vial", page_icon="🚗", layout="centered")
@@ -9,9 +10,9 @@ base_st.set_page_config(page_title="Inspector Vial", page_icon="🚗", layout="c
 base_st.title("🛡️ Inspector Vial")
 base_st.subheader("Unidad de Monitoreo Urbano - Lima, Perú")
 base_st.markdown("---")
-
-# FECHA Y HORA EN FORMATO COMPLETO
-hora_actual = datetime.now().strftime("%d/%m/%Y — %H:%M:%S")
+# Obtenemos la hora del servidor (que está adelantada) y le restamos 5 horas
+hora_lima = datetime.now() - timedelta(hours=5)
+hora_actual = hora_lima.strftime("%d/%m/%Y — %H:%M:%S")
 base_st.markdown(f"### ⏱️ **Fecha y Hora de Captura:** `{hora_actual}`")
 
 # LISTA DE DISTRITOS DE LIMA METROPOLITANA
