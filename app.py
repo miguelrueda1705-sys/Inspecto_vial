@@ -3,19 +3,19 @@ from datetime import datetime, timedelta
 import streamlit.components.v1 as components
 import time
 
-# --- CONFIGURACIÓN DE LA INTERFAZ ---
+
 base_st.set_page_config(page_title="Inspector Vial", page_icon="🚗", layout="centered")
 
-# TÍTULO REQUERIDO
+
 base_st.title("🛡️ Inspector Vial")
 base_st.subheader("Unidad de Monitoreo Urbano - Lima, Perú")
 base_st.markdown("---")
-# Obtenemos la hora del servidor (que está adelantada) y le restamos 5 horas
+
 hora_lima = datetime.now() - timedelta(hours=5)
 hora_actual = hora_lima.strftime("%d/%m/%Y — %H:%M:%S")
 base_st.markdown(f"### ⏱️ **Fecha y Hora de Captura:** `{hora_actual}`")
 
-# LISTA DE DISTRITOS DE LIMA METROPOLITANA
+
 distritos_lima = [
     "Lima Cercado", "Breña", "Jesús María", "La Victoria", "Lince", "Magdalena del Mar", 
     "Miraflores", "Pueblo Libre", "San Borja", "San Isidro", "San Luis", "San Miguel", 
@@ -31,11 +31,10 @@ base_st.write(f"**Ubicación registrada para el informe:** {distrito}, Lima, Per
 base_st.markdown("---")
 
 
-# RECUERDA: Coloca tu link aquí manteniendo la barra "/" al final. 
-# Tus clases en Teachable Machine deben llamarse: "Escala 1", "Escala 2", "Escala 3", "Escala 4", "Escala 5"
+
 URL_TEACHABLE_MACHINE = "https://teachablemachine.withgoogle.com/models/pnGtXoxsJ/"
 
-# Lógica HTML/JS integrada que recibe archivos cargados localmente en el navegador
+
 html_code = f"""
 <div style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1e1e1e; color: white; padding: 25px; border-radius: 10px; overflow: visible;">
     
